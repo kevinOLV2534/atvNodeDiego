@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+
+    <main>
+        <div class="fundo-destaque">
+            <h1 class="title-destaque">DESTAQUES</h1>
+
+            <div class="cards-row">
+                <% destaque.forEach(destaque => { %>
+                    <div class="card-item">
+                        <div class="card destaque-card">
+                            <img src="<%= destaque.img %>" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= destaque.nome %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= destaque.descricao %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </main>
+    </body>
+
+    </html>

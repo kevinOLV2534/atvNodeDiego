@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+
+    <main>
+        <section class="fundo-sinopse">
+            <div class="titulo-sinopse">
+                <h1 class="title-sinopse">EXPLORE <span class="span-sinopse">SEUS FILMES</span> FAVORITOS</h1>
+                <p class="descricao-sinopse">Veja suas sinopses favoritas em um só lugar.</p>
+            </div>
+        </section>
+        <div class="table-sinopse">
+            <table>
+                <tr>
+                    <th>Imagem</th>
+                    <th>Titulo</th>
+                    <th>Sinopse</th>
+                </tr>
+                <% sinopse.forEach(item => { %>
+                    <tr>
+                        <td><img src="<%= item.imagem %>" class="img-sinopse"></td>
+                        <td><%= item.titulo %></td>
+                        <td><%= item.sinopse %></td>
+                    </tr>
+                <% }) %>
+            </table>
+        </div>
+    </main>  
+</body>
+</html>
