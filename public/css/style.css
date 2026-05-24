@@ -13,6 +13,9 @@ main {
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.main-index{
   z-index: -2;
 }
 
@@ -102,7 +105,7 @@ main {
 .card-perfil {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   width: 90vw;
-  height: 600px;
+  height: 400px;
   margin-top: 250px;
   border-radius: 15px;
   margin-left: 5vw; 
@@ -117,13 +120,13 @@ main {
   flex-direction: column;
   justify-content: center;
   color: #ffffff;
-  font-size: 25px;
+  font-size: 15px;
   font-family: 'Roboto', sans-serif;
 }
 
 .img-perfil {
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -138,7 +141,7 @@ main {
 }
 
 .title-sinopse {
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 20px;
@@ -160,7 +163,7 @@ main {
 .table-sinopse {
   padding: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: center ;
   align-items: center;
 }
 
@@ -169,7 +172,7 @@ main {
   color: #ffffff;
 }
 
-.table-sinopse td {
+.table-sinopse {
   padding: 12px;
   text-align: left;
   font-size: 18px;
@@ -203,7 +206,7 @@ main {
 }
 
 .title-destaque {
-  font-size: 80px;
+  font-size: 50px;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
@@ -224,8 +227,39 @@ main {
 }
 
 .destaque-card {
-  width: 25rem;
-  min-width: 25rem;
+  width: 17rem;
+  min-width: 15rem;
+  font-size: 15px;
 }
 
 /* fim destaques */
+
+/* Cadastro Autor e Sinopse */
+ul {
+    list-style: square;
+    line-height: 30px;
+}
+
+a {
+    color:#0ba7c6;
+    text-decoration: none;
+    padding: 5px;
+}
+
+th, td {
+    padding: 10px;
+}
+
+.autor-select{
+  display: flex;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.img-sinopse{
+  width: 100px;
+  height: 100px;
+}
+
+
+/* Fim Cadastro Autor e Sinopse */

@@ -7,22 +7,79 @@
                 <p class="descricao-sinopse">Veja suas sinopses favoritas em um só lugar.</p>
             </div>
         </section>
-        <div class="table-sinopse">
-            <table>
-                <tr>
-                    <th>Imagem</th>
-                    <th>Titulo</th>
-                    <th>Sinopse</th>
-                </tr>
-                <% sinopse.forEach(item => { %>
-                    <tr>
-                        <td><img src="<%= item.imagem %>" class="img-sinopse"></td>
-                        <td><%= item.titulo %></td>
-                        <td><%= item.sinopse %></td>
-                    </tr>
-                <% }) %>
-            </table>
+        <div class="card container">
+            <div class="card-header">
+                <h1>Cadastrar sinopse</h1>
+            </div>
+            <div class="card-body">
+                <form action="/sinopse/Cadastrar" method="POST">
+                    <label>Digite a url da imagem:</label>
+                    <input type="text" name="url" placeholder="Insira a url" class="form-control" required>
+                    <label>Digite o titulo do filme:</label>
+                    <input type="text" name="titulo" placeholder="Insira o titulo" class="form-control" required>
+                    <label>Digite a sinopse:</label>
+                    <input type="text" name="sinopse" placeholder="Insira a sinopse do filme" class="form-control" required>
+                    <select name="autorId" class="autor-select">
+                            <% autor.forEach(aut =>{ %>
+                                <option value="<%= aut.id%>"> <%= aut.nomeAutor %></option>
+                            <%})%>   
+                        </select>
+                    <br>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <button type="reset" class="btn btn-danger">Limpar</button>
+                    <hr>
+                </form>
+            </div>
         </div>
+        <br>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Sinopse filmes</h1>
+                </div>
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Imagem:</th>
+                                <th>Titulo:</th>
+                                <th>Sinopse:</th>
+                                <th colspan="2" style="align-items: center;">Ações:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% sinopse.forEach(item=> { %>
+                                <tr>
+                                    <td>
+                                        <img src="<%= item.imagem %>" class="img-sinopse">
+                                    </td>
+                                    <td>
+                                        <%= item.titulo %>
+                                    </td>
+                                    <td>
+                                        <%= item.sinopse %>
+                                    </td>
+                                    <td>
+                                        <%= item.autor.nomeAutor %>
+                                    </td>
+                                    <td class="d-flex ">
+                                        <a href="/sinopse/Editar/<%= item.id %>">
+                                            <button class="btn btn-warning">Editar</button>
+                                        </a>
+
+                                        <a href="/sinopse/Excluir/<%= item.id %>">
+                                            <button class="btn btn-danger"
+                                                onclick="return confirm('Tem certeza que deseja excluir esse autor: <%= item.nomeAutor %>?')">
+                                                Excluir
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
     </main>  
 </body>
 </html>

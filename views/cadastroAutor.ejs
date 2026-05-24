@@ -1,0 +1,64 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="container">
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h1>Cadastrar Autor</h1>
+            </div>
+            <div class="card-body">
+                <form action="/Autor/cadastrar" method="POST">
+                    <label>Nome Autor:</label>
+                    <input type="text" name="nome" placeholder="Insira o nome do autor" class="form-control" required>
+                    <label>Idade Autor:</label>
+                    <input type="text" name="idade" placeholder="Insira a idade do autor" class="form-control" required>
+                    <br>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <button type="reset" class="btn btn-danger">Limpar</button>
+                </form>
+                <hr>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Produtos</h1>
+                </div>
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome:</th>
+                                <th>Idade:</th>
+                                <th colspan="2" style="align-items: center;">Ações:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% consulta.forEach(item=> { %>
+                                <tr>
+                                    <td>
+                                        <%= item.nomeAutor %>
+                                    </td>
+                                    <td>
+                                        <%= item.idadeAutor %>
+                                    </td>
+                                    <td class="d-flex">
+                                        <a href="/Autor/Alterar/<%= item.id %>">
+                                            <button class="btn btn-warning">Editar</button>
+                                        </a>
+
+                                        <a href="/Autor/Excluir/<%= item.id %>">
+                                            <button class="btn btn-danger"
+                                                onclick="return confirm('Tem certeza que deseja excluir esse autor: <%= item.nomeAutor %>?')">
+                                                Excluir
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
